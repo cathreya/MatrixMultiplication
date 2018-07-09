@@ -2,11 +2,11 @@
 import subprocess 
 import time
 
-with open("dump2.csv","a") as outf:
-	for i  in range (1,1000,1):
+with open("dump5.csv","a") as outf:
+	for i  in range (1,2000,10):
 		initial = time.perf_counter()
 		print(i)
-		p = subprocess.Popen(["./a.out", str(i)], shell=False)
+		p = subprocess.Popen(["./second", str(i)], shell=False)
 		p.wait()
 
 		final = time.perf_counter()

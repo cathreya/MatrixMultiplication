@@ -1,12 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define N 10000
+
+
+
+
+float m1[N][N], m2[N][N];
+float res[N][N];
 
 int main(int argc, char* argv[]){
 
 	const int n = atoi(argv[1]);
 
-	float m1[n][n], m2[n][n];
 
 	for(int i=0;i<n;i++){
 		for(int j=0;j<n;j++){
@@ -17,7 +23,6 @@ int main(int argc, char* argv[]){
 		// printf("\n");
 	}
 
-	float res[n][n];
 	for(int i=0;i<n;i++){
 		for(int j=0;j<n;j++){
 			for(int k=0;k<n;k++){
