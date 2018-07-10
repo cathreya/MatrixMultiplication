@@ -1,20 +1,21 @@
 
 import subprocess 
-import time
 
-with open("dump5.csv","a") as outf:
-	for i  in range (1,2000,10):
-		initial = time.perf_counter()
+
+with open("onlyMulO3.csv","a") as outf:
+	for i  in range (1,2000,10):		
 		print(i)
-		p = subprocess.Popen(["./second", str(i)], shell=False)
+		p = subprocess.Popen(["./third", str(i)], shell=False, stdout=subprocess.PIPE)
+		tim = p.communicate()[0]
 		p.wait()
 
-		final = time.perf_counter()
+		print(tim)
+
 
 		if(p.returncode != 0):
 			break
 		# print(i,final - initial, p.returncode)
-		outf.write(str(i)+","+str(final-initial)+"\n")
+		outf.write(str(i)+","+str(tim)+"\n")
 
 
 
